@@ -1,55 +1,78 @@
-**Project: Pneumonia Prediction App**
+Here is a draft of a README.md file tailored for your Pneumonia Detection web application that you can adapt for your repository.
 
-**Overview:**
+**Pneumonia Detection Web App**
 
-This project implements a web application that predicts the presence of pneumonia in chest X-ray images using a pre-trained deep learning model. It is intended for educational purposes and to guide users towards seeking professional medical advice for conclusive diagnoses and treatment.
+This web app allows users to upload chest X-ray images and determines the likelihood of pneumonia using a trained deep learning model.
 
-**Technologies:**
+**Features**
 
-* Python (3.6 or later)
-* Flask web framework
-* TensorFlow (2.4 or later)
-* NumPy
-* HTML, CSS, JavaScript
+*   Image upload (JPEG, PNG)
+*   Real-time pneumonia prediction from uploaded X-rays
+*   Probability estimates for both Normal and Pneumonia classes
+*   Displays the uploaded image with the predicted class
 
-**Instructions:**
+**Technologies**
 
-1. **Install dependencies:**
-   ```bash
-   pip install flask tensorflow numpy
-   ```
-2. **Download pre-trained model:**
-   Replace `"best_model1.h5"` in `app.py` with the path to your trained model file.
-3. **Set environment variables:**
-   * Create a `.env` file and add:
-     ```
-     SECRET_KEY=your_secret_key
-     ```
-     Replace `your_secret_key` with a strong password.
-4. **Run the app:**
-   ```bash
-   python app.py
-   ```
-   By default, the app runs on http://localhost:8080.
+*   Python
+*   Flask
+*   TensorFlow/Keras
+*   HTML/CSS
+*   JavaScript (for basic image preview)
 
-**Additional Notes:**
+**How to Run Locally**
 
-* Ensure your pre-trained model is well-validated and accurate for reliable predictions.
-* Consider adding more detailed usage instructions, model training explanations, and disclaimers in the README.
-* Address security concerns by using a secure key for `SECRET_KEY`.
-* Incorporate error handling and user feedback mechanisms to enhance the app's robustness and user experience.
-* Validate predictions with expert judgment to ensure the model's effectiveness.
+1.  **Clone the repository**
 
-**Disclaimer:**
+    ```bash
+    git clone https://github.com/Tirth-70/Pneumonia-Detection.git
+    ```
 
-* This app is intended for educational purposes only and should **not** be used for self-diagnosis or medical treatment.
-* Always consult a qualified healthcare professional for any health concerns.
+2.  **Install required packages:**
 
-**Further Enhancements:**
+    ```bash
+    cd Pneumonia-Detection
+    pip install -r requirements.txt
+    ```
 
-* Incorporate multi-class classification to distinguish between different types of pneumonia.
-* Integrate with cloud storage and deployment platforms for wider accessibility.
-* Implement feature selection or saliency maps to help users understand the model's rationale.
-* Consider ethical implications, potential biases, and regulations to ensure responsible deployment.
+3.  **Run the application:**
 
-**By following these guidelines and incorporating the feedback from the ratings, you can create a more comprehensive, informative, and user-friendly README file for your pneumonia prediction project.**
+    ```bash
+    python app.py
+    ```
+
+4.  **Open your web browser and navigate to:**
+
+    ```
+    http://localhost:8080 
+    ```
+
+**Directory Structure**
+
+*   **static**
+    *   `style.css`: Contains CSS styles for the web app.
+    *   `uploads`: Stores uploaded images.
+*   **templates**
+    *   `index.html`:  Contains the HTML structure and form.
+*   `app.py`:  Main Flask application file.
+*   `requirements.txt`:  Lists required Python dependencies. 
+*   `generator.ipynb`: (Presumably) Your training notebook, consider renaming it `train.ipynb` or similar if that's more accurate
+*   `best_model1.h5`: (Presumably) Contains your best trained model.
+
+**Model Training**
+
+The `generator.ipynb` file (or a similarly named `train.ipynb`) presumably contains the code used to train the deep learning model. Details about the training dataset, preprocessing steps, and model architecture can be added to the README or included in a separate `training_notes.txt` file for more thorough documentation.
+
+**Contributing**
+
+[Feel free to suggest improvements or raise issues if you encounter any bugs.] (Replace with your own contribution guidelines, if desired).
+
+**Disclaimer**
+
+This project is intended for educational and demonstration purposes.  It is not a substitute for professional medical advice.
+
+**License**
+
+[Add license information here (e.g., MIT, Apache 2.0)]
+
+
+**Let me know if you would like any other areas expanded or changed!** 
