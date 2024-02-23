@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Prediction Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Pneumonia Prediction Results</h1>
+
+    {% if image_file %}
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded X-ray image">
+    {% endif %}
+
+    <p><strong>Prediction:</strong> {{ prediction }}</p>
+
+    {% if prediction == "Pneumonia detected" %}
+        <p>This prediction suggests the presence of pneumonia in the X-ray. However, **this is not a definitive diagnosis** and does not replace the need for professional medical advice. Please consult a healthcare provider for a proper diagnosis and treatment plan.</p>
+    {% else %}
+        <p>This prediction suggests the absence of pneumonia in the X-ray. However, it is important to note that no diagnostic tool is perfect, and consultation with a healthcare provider is always recommended for concerns about your health.</p>
+    {% endif %}
+
+    <p><strong>Disclaimer:** This app is for educational purposes only and should not be used for self-diagnosis or medical treatment.</p>
+
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+
+</body>
+</html>
