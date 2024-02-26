@@ -66,4 +66,8 @@ The `generator.ipynb` file (or a similarly named `train.ipynb`) presumably conta
 
 **Disclaimer**
 
+<<<<<<< HEAD
 This project is intended for educational and demonstration purposes.  It is not a substitute for professional medical advice.
+=======
+This project is intended for educational and demonstration purposes.  It is not a substitute for professional medical advice.
+>>>>>>> dbba9d4 (Updated README)

@@ -1,2 +1,6 @@
-__pycache__
-Dockerfile
+__pycache__/
+.DS_Store
+flask_session/
+*.jpeg
+*.jpg
+*.png
