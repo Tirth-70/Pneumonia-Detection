@@ -4,9 +4,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.utils import secure_filename
 import pickle
 from flask_session import Session
+from PIL import Image 
 
-# from PIL import Image 
-import cv2
 
 
 app = Flask(__name__)
@@ -36,17 +35,16 @@ def predict():
     flash('Processing image...', 'info')
     image_file = request.files['image']
     filename = secure_filename(image_file.filename)
-    tirth = "image."+filename.split(".")[-1]
+    final_filename = "image."+filename.split(".")[-1]
 
-    image_file.save(os.path.join(app.config['UPLOAD_FOLDER'], tirth))
+    image_file.save(os.path.join(app.config['UPLOAD_FOLDER'], final_filename))
     
-    if image_file and allowed_file(tirth):
+    if image_file and allowed_file(final_filename):
         
         try:
-            # Image preprocessing (replace with your specific steps)
-            img = cv2.imread(os.path.join(app.config['UPLOAD_FOLDER'], tirth))
-            img = cv2.resize(img, (224, 224))
-            image_array = np.array(img)
+            # Image preprocessing
+            img_data = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], final_filename)).convert('RGB').resize((224, 224))
+            image_array = np.array(img_data)
             image_array = image_array / 255.0  # Normalize pixel values
             image_batch = np.expand_dims(image_array, axis=0)  # Add batch dimension
 
@@ -59,7 +57,7 @@ def predict():
             return render_template(
                 'index.html',
                 filename_display=filename,
-                filename=tirth,
+                filename=final_filename,
                 prediction=prediction_probabilities,
                 class_names=class_names[0 if prediction_probabilities[0] < 0.5 else 1],
                 normal_proba=100-(prediction_probabilities[0] * 100),
