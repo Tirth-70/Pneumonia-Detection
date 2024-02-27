@@ -37,6 +37,9 @@ def predict():
     filename = secure_filename(image_file.filename)
     final_filename = "image."+filename.split(".")[-1]
 
+    if not os.path.exists(app.config['UPLOAD_FOLDER']):
+        os.makedirs(app.config['UPLOAD_FOLDER'])
+
     image_file.save(os.path.join(app.config['UPLOAD_FOLDER'], final_filename))
     
     if image_file and allowed_file(final_filename):
